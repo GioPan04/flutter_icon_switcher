@@ -1,8 +1,8 @@
 name: flutter_icon_switcher
-description: A new flutter plugin project.
+description: Change your app icon at runtime!
 version: 0.0.1
-author:
-homepage:
+author: Gioele Pannetto
+homepage: https://github.com/GioPan04/flutter_icon_switcher
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
