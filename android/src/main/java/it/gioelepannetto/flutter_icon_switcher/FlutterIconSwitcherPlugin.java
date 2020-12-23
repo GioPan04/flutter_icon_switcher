@@ -66,7 +66,7 @@ public class FlutterIconSwitcherPlugin implements FlutterPlugin, MethodCallHandl
           updateIcon(data);
           result.success(true);
         } catch (Exception e) {
-          Log.e(TAG, e.toString());
+          e.printStackTrace();
         }
         break;
       case "resetIcon":
@@ -74,7 +74,7 @@ public class FlutterIconSwitcherPlugin implements FlutterPlugin, MethodCallHandl
           resetIcon();
           result.success(true);
         } catch (Exception e) {
-          Log.e(TAG, e.toString());
+          e.printStackTrace();
         }
         break;
       default:
@@ -91,13 +91,8 @@ public class FlutterIconSwitcherPlugin implements FlutterPlugin, MethodCallHandl
     // Get the class name of the activity-alias
     String className = String.format("%s.%s", packageName, name);
 
-    ComponentInfo oldName = getEnabledComponent();
-    Log.d(TAG, "Found active component: " + oldName.name);
+    ActivityInfo[] oldName = getActivities();
 
-    // Get the default class name of the activity-alias
-    String oldClassName = String.format("%s.%s", packageName, oldName.getClass());
-
-    // Update the icon
     PackageManager pm = context.getPackageManager();
 
     pm.setComponentEnabledSetting(
@@ -106,11 +101,15 @@ public class FlutterIconSwitcherPlugin implements FlutterPlugin, MethodCallHandl
             PackageManager.DONT_KILL_APP
     );
 
-    pm.setComponentEnabledSetting(
-            new ComponentName(packageName, oldName.name),
-            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-            PackageManager.DONT_KILL_APP
-    );
+    for(ActivityInfo activity: oldName) {
+      if(!activity.name.equals(className)) {
+        pm.setComponentEnabledSetting(
+                new ComponentName(packageName, activity.name),
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP
+        );
+      }
+    }
   }
 
   public void resetIcon() {
@@ -146,7 +145,7 @@ public class FlutterIconSwitcherPlugin implements FlutterPlugin, MethodCallHandl
   }
 
 
-  public ActivityInfo getEnabledComponent() {
+  /*public ActivityInfo getEnabledComponent() {
     PackageManager pm = context.getPackageManager();
     String packageName = context.getPackageName();
     ActivityInfo[] activityInfos = getActivities();
@@ -164,7 +163,7 @@ public class FlutterIconSwitcherPlugin implements FlutterPlugin, MethodCallHandl
     }
 
     return enabledComponent;
-  }
+  }*/
 
   public ActivityInfo[] getActivities() {
     ActivityInfo[] activityInfos;
