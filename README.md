@@ -7,12 +7,7 @@ Change your app icon at runtime!
 * On Android if you try to run the app via cli, for example `flutter run` (or from the ide plugin), the app will not launch if the current enabled icon is not the default.
 
 ## Installation
-1. Add to your `pubpsec.yaml` file under dependencies:
-    ```yaml
-    flutter_icon_switcher:
-      git:
-        url: git://github.com/GioPan04/flutter_icon_switcher.git
-    ```
+1. Add the latest version of the plugin to your `pubpsec.yaml` under dependencies section
 2. Run `flutter pub get`
 3. Update `android/src/main/AndroidManifest.xml` as follows:
     ```xml
