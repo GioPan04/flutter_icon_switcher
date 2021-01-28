@@ -34,7 +34,6 @@ Paste your AndroidManifest.xml contents here
 ```
 </details>
 
-
 **Flutter Doctor**
 <details><summary>Click To Expand</summary>
 ```
