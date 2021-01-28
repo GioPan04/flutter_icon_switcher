@@ -27,6 +27,14 @@ A clear and concise description of what you expected to happen.
 **Additional context**
 Add any other context about the problem here.
 
+**AndroidManifest.xml**
+<details><summary>Click To Expand</summary>
+```
+Paste your AndroidManifest.xml contents here
+```
+</details>
+
+
 **Flutter Doctor**
 <details><summary>Click To Expand</summary>
 ```
