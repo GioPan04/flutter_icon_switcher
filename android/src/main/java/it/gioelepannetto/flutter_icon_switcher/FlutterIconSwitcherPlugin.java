@@ -117,13 +117,13 @@ public class FlutterIconSwitcherPlugin implements FlutterPlugin, MethodCallHandl
     String packageName = context.getPackageName();
 
     // Get the default class name of the activity-alias
-    String defaultClassName = String.format("%s.%s", packageName, "DEFAULT");
+    String defaultClassName = String.format("%s.%s", packageName, "MainActivity");
 
     // Update the icon
     PackageManager pm = context.getPackageManager();
 
-    //ActivityInfo oldActivity = getEnabledComponent();
-    String oldClassName = String.format("%s.%s", packageName, "BLUE");
+    // ActivityInfo oldActivity = getEnabledComponent();
+    String oldClassName = String.format("%s.%s", packageName, "ALT");
 
     /*if (oldActivity.name.contains("DEFAULT")) {
       return;
@@ -145,7 +145,7 @@ public class FlutterIconSwitcherPlugin implements FlutterPlugin, MethodCallHandl
   }
 
 
-  /*public ActivityInfo getEnabledComponent() {
+  public ActivityInfo getEnabledComponent() {
     PackageManager pm = context.getPackageManager();
     String packageName = context.getPackageName();
     ActivityInfo[] activityInfos = getActivities();
@@ -163,7 +163,7 @@ public class FlutterIconSwitcherPlugin implements FlutterPlugin, MethodCallHandl
     }
 
     return enabledComponent;
-  }*/
+  }
 
   public ActivityInfo[] getActivities() {
     ActivityInfo[] activityInfos;

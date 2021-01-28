@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
 
 
   void _updateIcon() async {
-    await FlutterIconSwitcher.updateIcon('BLUE');
+    await FlutterIconSwitcher.updateIcon('ALT');
   }
 
   void _resetIcon() async { 

@@ -3,6 +3,7 @@
 Change your app icon at runtime!
 
 ## Known issues
+* You can use only one alternative icon. Later on I'll (re)make the process more dynamic. More info [here](https://github.com/GioPan04/flutter_icon_switcher/issues/1)
 * The plugin only works on Android, on iOS will work, but i'm working on it.
 * On Android if you try to run the app via cli, for example `flutter run` (or from the ide plugin), the app will not launch if the current enabled icon is not the default.
 
@@ -19,16 +20,8 @@ Change your app icon at runtime!
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
-
-        <!-- The activity-alias are your alternatives icons and name of your app, the default one must be enabled (and the others disabled) and the name must be ".DEFAULT". All the names of your activity-alias' name must begin with a dot. -->
-        <activity-alias
-            android:label="Default"
-            android:icon="@mipmap/ic_launcher_2"
-            android:name=".DEFAULT"
-            android:enabled="true"
-            android:targetActivity=".MainActivity">
+            android:windowSoftInputMode="adjustResize"
+            android:enabled="true">
 
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
@@ -44,13 +37,16 @@ Change your app icon at runtime!
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
 
-        </activity-alias>
+        <!-- The activity-alias are your alternatives icons and name of your app, the default one must be enabled (and the others disabled) and the name must be ".DEFAULT". All the names of your activity-alias' name must begin with a dot. -->
+
+        <!-- FOR NOW USE "ALT" AS ALTERNATIVE ICON NAME, FOLLOW https://github.com/GioPan04/flutter_icon_switcher/issues/1 FOR MORE INFO -->
 
         <activity-alias
             android:label="Blue"
             android:icon="@mipmap/ic_launcher_3"
-            android:name=".BLUE"
+            android:name=".ALT"
             android:enabled="false"
             android:targetActivity=".MainActivity">
 
@@ -75,7 +71,7 @@ Change your app icon at runtime!
 4. In your app you can now use:
     (The name you pass in the method must be in the `AndroidManifest.xml`)
     ```dart
-    FlutterIconSwitcher.updateIcon('BLUE');
+    FlutterIconSwitcher.updateIcon('ALT');
     ```
 5. Enjoy!
 ---

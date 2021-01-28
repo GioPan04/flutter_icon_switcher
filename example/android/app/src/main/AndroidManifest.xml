@@ -11,16 +11,8 @@
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize">
-
-        </activity>
-
-        <activity-alias
-            android:label="Default"
-            android:icon="@mipmap/ic_launcher_2"
-            android:name=".DEFAULT"
-            android:enabled="true"
-            android:targetActivity=".MainActivity">
+            android:windowSoftInputMode="adjustResize"
+            android:enabled="true">
 
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
@@ -37,12 +29,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-        </activity-alias>
+        </activity>
 
+        <!-- FOR NOW USE "ALT" AS ALTERNATIVE ICON NAME, FOLLOW https://github.com/GioPan04/flutter_icon_switcher/issues/1 FOR MORE INFO -->
         <activity-alias
             android:label="Blue"
             android:icon="@mipmap/ic_launcher_3"
-            android:name=".BLUE"
+            android:name=".ALT"
             android:enabled="false"
             android:targetActivity=".MainActivity">
 
